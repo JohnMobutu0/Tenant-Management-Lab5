@@ -1,4 +1,4 @@
-package com.example.tenantmanagementsystem2
+package com.example.tenantmanagementsystem2.ui.tenants
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import android.content.Intent
 import android.net.Uri
+import com.example.tenantmanagementsystem2.data.repository.TenantRepository
+import com.example.tenantmanagementsystem2.ui.tenants.ViewTenantsFragmentArgs
 
 
 // Generated from fragment_view_tenants.xml (a Data Binding layout)
