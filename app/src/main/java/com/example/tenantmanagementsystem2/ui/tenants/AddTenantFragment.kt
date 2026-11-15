@@ -37,7 +37,11 @@ class AddTenantFragment : Fragment() {
                 Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            val tenant = Tenant(name, phone, rent)
+            val tenant = Tenant(
+                name = name,
+                phone = phone,
+                rent = rent
+            )
 // Add to the shared list (the Dashboard and View Tenants read it)
             TenantRepository.addTenant(tenant)
 // SAFE ARGS: this function was generated from the <action> in
