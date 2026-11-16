@@ -1,17 +1,14 @@
-
 plugins {
-    alias(libs.plugins.android.application)
+    id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("androidx.navigation.safeargs.kotlin")
     id("com.google.devtools.ksp")
+    id("androidx.navigation.safeargs.kotlin") // <-- Ensure this is here
 }
 
 android {
     namespace = "com.example.tenantmanagementsystem2"
 
-    compileSdk {
-        version = release(37)
-    }
+    compileSdk = 37
 
     buildFeatures {
         viewBinding = true
@@ -25,20 +22,16 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner =
-            "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            optimization {
-                enable = true
-                packageScope = setOf(
-                    "androidx.**",
-                    "kotlin.**",
-                    "kotlinx.**"
-                )
-            }
+            isMinifyEnabled = false // Standard setting unless optimization is explicitly configured
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -70,7 +63,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.9.8")
     implementation("androidx.navigation:navigation-ui-ktx:2.9.8")
 
-    // Room database
+    // Room database libraries[cite: 15]
     implementation("androidx.room:room-runtime:2.7.2")
     implementation("androidx.room:room-ktx:2.7.2")
     ksp("androidx.room:room-compiler:2.7.2")
